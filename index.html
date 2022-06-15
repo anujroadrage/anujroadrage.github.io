@@ -3,13 +3,112 @@
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
   <body style="margin : 0px; overflow: hidden;">
+    <script>
+      AFRAME.registerComponent('modify-materials', {
+        init: function () {
+          console.log("flag1");
+          // Wait for model to load.
+          this.el.addEventListener('model-loaded', () => {
+            console.log("flag2");
+            // Grab the mesh / scene.
+            const obj = this.el.getObject3D('mesh');
+            // Go over the submeshes and modify materials we want.
+            obj.traverse(node => {
+              console.log("flag3");
+              if (node.name.indexOf('almirah') !== -1) {
+                console.log("flag4");
+                node.material.color.set('red');
+              }
+            });
+          });
+        }
+      });
+    </script>
     <a-scene embedded arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+      <a-assets>
+        <a-asset-item id="almirah" src="./public/sonam grp 2bhkblend.glb"></a-asset-item>
+      </a-assets>
       <a-marker  type='barcode' value='0'>
         <a-entity
           position="0 0 0"
-          scale="0.5 0.5 0.5"
-          gltf-model="./public/interior.glb"
+          scale="0.01 0.01 0.01"
+          gltf-model="#almirah"
         ></a-entity>
+        <!-- <a-entity
+          position="0 0 0"
+          scale="0.01 0.01 0.01"
+          gltf-model="./public/model gltf/bedroom.gltf"
+        ></a-entity>
+        <a-entity
+          position="0 0 0"
+          scale="0.01 0.01 0.01"
+          gltf-model="./public/model gltf/c toilet.gltf"
+        ></a-entity>
+        <a-entity
+          position="0 0 0"
+          scale="0.01 0.01 0.01"
+          gltf-model="./public/model gltf/curtain.gltf"
+        ></a-entity>
+        <a-entity
+          position="0 0 0"
+          scale="0.01 0.01 0.01"
+          gltf-model="./public/model gltf/dining.gltf"
+        ></a-entity>
+        <a-entity
+          position="0 0 0"
+          scale="0.01 0.01 0.01"
+          gltf-model="./public/model gltf/doorWindow.gltf"
+        ></a-entity>
+        <a-entity
+          position="0 0 0"
+          scale="0.01 0.01 0.01"
+          gltf-model="./public/model gltf/floor.gltf"
+        ></a-entity>
+        <a-entity
+          position="0 0 0"
+          scale="0.01 0.01 0.01"
+          gltf-model="./public/model gltf/glass.gltf"
+        ></a-entity>
+        <a-entity
+          position="0 0 0"
+          scale="0.01 0.01 0.01"
+          gltf-model="./public/model gltf/kitchen.gltf"
+        ></a-entity>
+        <a-entity
+          position="0 0 0"
+          scale="0.01 0.01 0.01"
+          gltf-model="./public/model gltf/living.gltf"
+        ></a-entity>
+        <a-entity
+          position="0 0 0"
+          scale="0.01 0.01 0.01"
+          gltf-model="./public/model gltf/M bedroom extra.gltf"
+        ></a-entity>
+        <a-entity
+          position="0 0 0"
+          scale="0.01 0.01 0.01"
+          gltf-model="./public/model gltf/M bedroom.gltf"
+        ></a-entity>
+        <a-entity
+          position="0 0 0"
+          scale="0.01 0.01 0.01"
+          gltf-model="./public/model gltf/M Toilet.gltf"
+        ></a-entity>
+        <a-entity
+          position="0 0 0"
+          scale="0.01 0.01 0.01"
+          gltf-model="./public/model gltf/plant.gltf"
+        ></a-entity>
+        <a-entity
+          position="0 0 0"
+          scale="0.01 0.01 0.01"
+          gltf-model="./public/model gltf/roof.gltf"
+        ></a-entity>
+        <a-entity
+          position="0 0 0"
+          scale="0.01 0.01 0.01"
+          gltf-model="./public/model gltf/wall.gltf"
+        ></a-entity> -->
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
