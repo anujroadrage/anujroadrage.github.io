@@ -1,32 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <!-- <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script> -->
   <body style="margin : 0px; overflow: hidden;">
-    <script>
-      AFRAME.registerComponent('modify-materials', {
-        init: function () {
-          console.log("flag1");
-          // Wait for model to load.
-          this.el.addEventListener('model-loaded', () => {
-            console.log("flag2");
-            // Grab the mesh / scene.
-            const obj = this.el.getObject3D('mesh');
-            // Go over the submeshes and modify materials we want.
-            obj.traverse(node => {
-              console.log("flag3");
-              if (node.name.indexOf('almirah') !== -1) {
-                console.log("flag4");
-                node.material.color.set('red');
-              }
-            });
-          });
-        }
-      });
-    </script>
-    <a-scene embedded arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+    <a href="intent://arvr.google.com/scene-viewer/1.0?file=https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/Avocado/glTF/Avocado.gltf#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;">Avocado</a><br><br>
+    <a href="intent://arvr.google.com/scene-viewer/1.0?file=https://github.com/anujroadrage/anujroadrage.github.io/blob/main/public/sonam%20grp%202bhkblend.glb?raw=true#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;">2BHK</a><br><br>
+    <a href="intent://arvr.google.com/scene-viewer/1.0?file=https://github.com/anujroadrage/anujroadrage.github.io/blob/main/public/sonam%20grp%202bhk%200.5.glb?raw=true#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;">2BHK 0.1</a><br><br>
+    <a href="intent://arvr.google.com/scene-viewer/1.0?file=https://github.com/anujroadrage/anujroadrage.github.io/blob/main/public/sonam%20grp%202bhk%200.5.glb?raw=true#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;">2BHK 0.5</a><br><br>
+    <a href="intent://arvr.google.com/scene-viewer/1.0?file=https://github.com/anujroadrage/anujroadrage.github.io/blob/main/public/sonam%20grp%20removed%20plant.glb?raw=true#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;">2BHK 1</a><br><br>
+    <!-- <a-scene embedded arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
       <a-assets>
-        <a-asset-item id="almirah" src="./public/sonam grp 2bhkblend.glb"></a-asset-item>
+        <a-asset-item id="almirah" src="./public/sonam grp removed plant.glb"></a-asset-item>
       </a-assets>
       <a-marker  type='barcode' value='0'>
         <a-entity
@@ -34,7 +18,7 @@
           scale="0.01 0.01 0.01"
           gltf-model="#almirah"
         ></a-entity>
-        <!-- <a-entity
+        <a-entity
           position="0 0 0"
           scale="0.01 0.01 0.01"
           gltf-model="./public/model gltf/bedroom.gltf"
@@ -108,9 +92,9 @@
           position="0 0 0"
           scale="0.01 0.01 0.01"
           gltf-model="./public/model gltf/wall.gltf"
-        ></a-entity> -->
+        ></a-entity>
       </a-marker>
       <a-entity camera></a-entity>
-    </a-scene>
+    </a-scene> -->
   </body>
 </html>
